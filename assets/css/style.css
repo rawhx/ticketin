@@ -8,3 +8,8 @@
 .scroll-x::-webkit-scrollbar {
     display: none;               
 }
+
+a.card {
+    text-decoration: none;
+    color: inherit;
+}
