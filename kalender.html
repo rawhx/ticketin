@@ -89,7 +89,7 @@
 
          <div>
             <h6 class="text-capitalize">lokasi terdekat</h6>
-            <div class="d-flex flex-column gap-3 px-3 pt-2" style="padding-bottom: 6rem !important;"> 
+            <div class="d-flex flex-column gap-3 pt-2" style="padding-bottom: 6rem !important;"> 
                 <a href="#" class="card position-relative" style="flex-shrink: 0">
                     <div class="card-body d-flex gap-4 align-items-center">
                         <img src="https://static.wixstatic.com/media/a1a7ae_9a19b400a37e4efab3c86dfdf8fc8504~mv2.jpg/v1/fill/w_752,h_502,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1a7ae_9a19b400a37e4efab3c86dfdf8fc8504~mv2.jpg" style="width: 6rem; height: 6rem; object-fit: cover;" class="rounded" alt="Event 1">
@@ -278,13 +278,13 @@
             }
 
             for (let d = 1; d <= totalDays; d++) {
-            const fullDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-            const isToday = today.toDateString() === new Date(year, month, d).toDateString();
-    
-            const classes = ["day"];
-            if (isToday) classes.push("today");
+                const fullDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+                const isToday = today.toDateString() === new Date(year, month, d).toDateString();
+        
+                const classes = ["day"];
+                if (isToday) classes.push("today");
 
-            const el = $(`<div class="${classes.join(" ")}">${d}</div>`);
+                const el = $(`<div class="${classes.join(" ")}">${d}</div>`);
                 $("#calendar-days").append(el);
             }
         }

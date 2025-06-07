@@ -13,3 +13,11 @@ a.card {
     text-decoration: none;
     color: inherit;
 }
+
+a.card.position-relative i {
+    font-size: 10px;
+} 
+
+a.card.position-relative p {
+    font-size: 10px;
+} 
