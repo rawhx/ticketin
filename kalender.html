@@ -10,23 +10,232 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 
     <!-- jquery -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
     <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+            text-align: center;
+            color: #444;
+        }
+
+        .day-name {
+            font-weight: bold;
+            color: #888;
+        }
+
+        .day {
+            height: 40px;
+            line-height: 40px;
+            cursor: pointer;
+        }
+
+        .past-day {
+            color: #ccc;
+        }
+
+        .today {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            background-color: #eee;
+            font-weight: bold;
+            text-align: center;
+            margin: auto;
+            cursor: pointer;
+        }
+
+
+        .highlight {
+            padding: 10px 0;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
-    <header class="p-3 d-flex justify-content-between border-bottom align-items-center">
+    <header class="sticky-top bg-white p-3 d-flex justify-content-between border-bottom align-items-center">
         <div>
             <h4 class="text-capitalize">kalender</h4>
         </div>
     </header>
     
     <main class="flex-grow-1 p-3 d-flex flex-column gap-4">
-        <div id="kalender">
-
+        <div class="calendar">
+            <div class="calendar-header">
+                <div id="calendar-month-year"></div>
+                <span class="d-flex gap-3">
+                    <button class="btn" id="prev-month"><i class="fa-solid fa-angle-left"></i></button>
+                    <button class="btn" id="next-month"><i class="fa-solid fa-angle-right"></i></button>
+                </span>
+            </div>
+            <div class="calendar-grid" id="calendar-days"></div>
         </div>
 
+         <div>
+            <h6 class="text-capitalize">Kegiatan</h6>
+            <div class="d-flex flex-column gap-3 pt-2" style="padding-bottom: 6rem !important;"> 
+                <a href="detailTiket.html" class="card position-relative" style="flex-shrink: 0">
+                    <div class="card-body d-flex gap-4 align-items-center">
+                        <img src="https://static.wixstatic.com/media/a1a7ae_9a19b400a37e4efab3c86dfdf8fc8504~mv2.jpg/v1/fill/w_752,h_502,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1a7ae_9a19b400a37e4efab3c86dfdf8fc8504~mv2.jpg" style="width: 6rem; height: 6rem; object-fit: cover;" class="rounded" alt="Event 1">
+                        <div>
+                            <h6 class="card-title">Konser Musik</h6>
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <p class="m-0 lokasi text-capitalize">malang, indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-calender border bg-white position-absolute rounded d-flex justify-content-center flex-column align-items-center p-2" style="top: 37%; right: 15px; transform: translateY(-50%);">
+                        <div>
+                            <p class="m-0 text-center">Jan</p>
+                            <h6 class="m-0 text-center">12</h6>
+                        </div>
+                    </div>
+                </a>
+                <a href="detailTiket.html" class="card position-relative" style="flex-shrink: 0">
+                    <div class="card-body d-flex gap-4 align-items-center">
+                        <img src="https://static.wixstatic.com/media/a1a7ae_9a19b400a37e4efab3c86dfdf8fc8504~mv2.jpg/v1/fill/w_752,h_502,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1a7ae_9a19b400a37e4efab3c86dfdf8fc8504~mv2.jpg" style="width: 6rem; height: 6rem; object-fit: cover;" class="rounded" alt="Event 1">
+                        <div>
+                            <h6 class="card-title">Konser Musik</h6>
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <p class="m-0 lokasi text-capitalize">malang, indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-calender border bg-white position-absolute rounded d-flex justify-content-center flex-column align-items-center p-2" style="top: 37%; right: 15px; transform: translateY(-50%);">
+                        <div>
+                            <p class="m-0 text-center">Jan</p>
+                            <h6 class="m-0 text-center">12</h6>
+                        </div>
+                    </div>
+                </a>
+                <a href="detailTiket.html" class="card position-relative" style="flex-shrink: 0">
+                    <div class="card-body d-flex gap-4 align-items-center">
+                        <img src="https://static.wixstatic.com/media/a1a7ae_9a19b400a37e4efab3c86dfdf8fc8504~mv2.jpg/v1/fill/w_752,h_502,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1a7ae_9a19b400a37e4efab3c86dfdf8fc8504~mv2.jpg" style="width: 6rem; height: 6rem; object-fit: cover;" class="rounded" alt="Event 1">
+                        <div>
+                            <h6 class="card-title">Konser Musik</h6>
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <p class="m-0 lokasi text-capitalize">malang, indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-calender border bg-white position-absolute rounded d-flex justify-content-center flex-column align-items-center p-2" style="top: 37%; right: 15px; transform: translateY(-50%);">
+                        <div>
+                            <p class="m-0 text-center">Jan</p>
+                            <h6 class="m-0 text-center">12</h6>
+                        </div>
+                    </div>
+                </a>
+                <a href="detailTiket.html" class="card position-relative" style="flex-shrink: 0">
+                    <div class="card-body d-flex gap-4 align-items-center">
+                        <img src="https://static.wixstatic.com/media/a1a7ae_9a19b400a37e4efab3c86dfdf8fc8504~mv2.jpg/v1/fill/w_752,h_502,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1a7ae_9a19b400a37e4efab3c86dfdf8fc8504~mv2.jpg" style="width: 6rem; height: 6rem; object-fit: cover;" class="rounded" alt="Event 1">
+                        <div>
+                            <h6 class="card-title">Konser Musik</h6>
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <p class="m-0 lokasi text-capitalize">malang, indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-calender border bg-white position-absolute rounded d-flex justify-content-center flex-column align-items-center p-2" style="top: 37%; right: 15px; transform: translateY(-50%);">
+                        <div>
+                            <p class="m-0 text-center">Jan</p>
+                            <h6 class="m-0 text-center">12</h6>
+                        </div>
+                    </div>
+                </a>
+                <a href="detailTiket.html" class="card position-relative" style="flex-shrink: 0">
+                    <div class="card-body d-flex gap-4 align-items-center">
+                        <img src="https://static.wixstatic.com/media/a1a7ae_9a19b400a37e4efab3c86dfdf8fc8504~mv2.jpg/v1/fill/w_752,h_502,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1a7ae_9a19b400a37e4efab3c86dfdf8fc8504~mv2.jpg" style="width: 6rem; height: 6rem; object-fit: cover;" class="rounded" alt="Event 1">
+                        <div>
+                            <h6 class="card-title">Konser Musik</h6>
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <p class="m-0 lokasi text-capitalize">malang, indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-calender border bg-white position-absolute rounded d-flex justify-content-center flex-column align-items-center p-2" style="top: 37%; right: 15px; transform: translateY(-50%);">
+                        <div>
+                            <p class="m-0 text-center">Jan</p>
+                            <h6 class="m-0 text-center">12</h6>
+                        </div>
+                    </div>
+                </a>
+                <a href="detailTiket.html" class="card position-relative" style="flex-shrink: 0">
+                    <div class="card-body d-flex gap-4 align-items-center">
+                        <img src="https://static.wixstatic.com/media/a1a7ae_9a19b400a37e4efab3c86dfdf8fc8504~mv2.jpg/v1/fill/w_752,h_502,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1a7ae_9a19b400a37e4efab3c86dfdf8fc8504~mv2.jpg" style="width: 6rem; height: 6rem; object-fit: cover;" class="rounded" alt="Event 1">
+                        <div>
+                            <h6 class="card-title">Konser Musik</h6>
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <p class="m-0 lokasi text-capitalize">malang, indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-calender border bg-white position-absolute rounded d-flex justify-content-center flex-column align-items-center p-2" style="top: 37%; right: 15px; transform: translateY(-50%);">
+                        <div>
+                            <p class="m-0 text-center">Jan</p>
+                            <h6 class="m-0 text-center">12</h6>
+                        </div>
+                    </div>
+                </a>
+                <a href="detailTiket.html" class="card position-relative" style="flex-shrink: 0">
+                    <div class="card-body d-flex gap-4 align-items-center">
+                        <img src="https://static.wixstatic.com/media/a1a7ae_9a19b400a37e4efab3c86dfdf8fc8504~mv2.jpg/v1/fill/w_752,h_502,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1a7ae_9a19b400a37e4efab3c86dfdf8fc8504~mv2.jpg" style="width: 6rem; height: 6rem; object-fit: cover;" class="rounded" alt="Event 1">
+                        <div>
+                            <h6 class="card-title">Konser Musik</h6>
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <p class="m-0 lokasi text-capitalize">malang, indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-calender border bg-white position-absolute rounded d-flex justify-content-center flex-column align-items-center p-2" style="top: 37%; right: 15px; transform: translateY(-50%);">
+                        <div>
+                            <p class="m-0 text-center">Jan</p>
+                            <h6 class="m-0 text-center">12</h6>
+                        </div>
+                    </div>
+                </a>
+                <a href="detailTiket.html" class="card position-relative" style="flex-shrink: 0">
+                    <div class="card-body d-flex gap-4 align-items-center">
+                        <img src="https://static.wixstatic.com/media/a1a7ae_9a19b400a37e4efab3c86dfdf8fc8504~mv2.jpg/v1/fill/w_752,h_502,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1a7ae_9a19b400a37e4efab3c86dfdf8fc8504~mv2.jpg" style="width: 6rem; height: 6rem; object-fit: cover;" class="rounded" alt="Event 1">
+                        <div>
+                            <h6 class="card-title">Konser Musik</h6>
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <p class="m-0 lokasi text-capitalize">malang, indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-calender border bg-white position-absolute rounded d-flex justify-content-center flex-column align-items-center p-2" style="top: 37%; right: 15px; transform: translateY(-50%);">
+                        <div>
+                            <p class="m-0 text-center">Jan</p>
+                            <h6 class="m-0 text-center">12</h6>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
     </main>
 
     <footer class="fixed-bottom bg-white d-flex justify-content-between align-items-center border-top px-3 py-4">
@@ -36,12 +245,63 @@
         <a href="tiket.html">
             <i class="fa-solid text-secondary fa-ticket fs-3"></i>
         </a>
-        <a href="">
+        <a href="kalender.html">
             <i class="fa-solid text-black fa-calendar fs-3"></i>
         </a>
-        <a href="#">
+        <a href="detailTiket.html">
             <i class="fa-solid text-secondary fa-user fs-3"></i>
         </a>
     </footer>
+
+    <script>
+        const monthNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+        const dayNames = ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"];
+
+        let currentDate = new Date();
+
+        function renderCalendar(date) {
+            const year = date.getFullYear();
+            const month = date.getMonth();
+            const firstDay = new Date(year, month, 1).getDay();
+            const totalDays = new Date(year, month + 1, 0).getDate();
+            const today = new Date();
+
+            $("#calendar-month-year").text(`${monthNames[month]} ${year}`);
+            $("#calendar-days").empty();
+
+            dayNames.forEach(day => {
+                $("#calendar-days").append(`<div class="day-name">${day}</div>`);
+            });
+
+            for (let i = 0; i < firstDay; i++) {
+                $("#calendar-days").append(`<div></div>`);
+            }
+
+            for (let d = 1; d <= totalDays; d++) {
+                const fullDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+                const isToday = today.toDateString() === new Date(year, month, d).toDateString();
+        
+                const classes = ["day"];
+                if (isToday) classes.push("today");
+
+                const el = $(`<div class="${classes.join(" ")}">${d}</div>`);
+                $("#calendar-days").append(el);
+            }
+        }
+
+        $(document).ready(function () {
+            renderCalendar(currentDate);
+
+            $("#prev-month").click(function () {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                renderCalendar(currentDate);
+            });
+
+            $("#next-month").click(function () {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                renderCalendar(currentDate);
+            });
+        });
+    </script>
 </body>
 </html>

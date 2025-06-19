@@ -5,6 +5,11 @@
     scrollbar-width: none;        
 }
 
+body {
+    overflow: auto;
+    font-family: "Poppins", sans-serif;
+}
+
 .scroll-x::-webkit-scrollbar {
     display: none;               
 }
@@ -13,3 +18,8 @@ a.card {
     text-decoration: none;
     color: inherit;
 }
+
+a.card.position-relative i, a.card.position-relative p
+{
+    font-size: 12px;
+} 
