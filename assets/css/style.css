@@ -1,3 +1,13 @@
+:root {
+    --primary: #006A71;
+    --secondary: #48A6A7;
+    --secondary-gray: #B5B5B5;
+}
+
+footer a i.active {
+    color: var(--primary);
+}
+
 .scroll-x {
     overflow-x: auto;
     scroll-behavior: smooth;
@@ -8,6 +18,7 @@
 body {
     overflow: auto;
     font-family: "Poppins", sans-serif;
+    font-weight: 500;
 }
 
 .scroll-x::-webkit-scrollbar {
@@ -23,3 +34,30 @@ a.card.position-relative i, a.card.position-relative p
 {
     font-size: 12px;
 } 
+
+.btn.btn-primary {
+    border-color: var(--primary) !important;
+    background-color: var(--primary) !important;
+}
+
+.btn.btn-primary:hover {
+    border-color: #004A70 !important;
+    background-color: #004A70 !important;
+}
+
+.btn.btn-secondary {
+    border-color: var(--secondary) !important;
+    background-color: var(--secondary) !important;
+}
+
+.text-primary:hover {
+    color: #004A70 !important;
+}
+
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.txt-primary {
+    color: var(--primary) !important;
+}
