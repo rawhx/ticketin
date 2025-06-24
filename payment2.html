@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicketIn | Pembayaran</title>
+
+    <!-- font poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header class="sticky-top bg-white px-4 py-3 d-flex justify-content-between border-bottom align-items-center">
+      <div>
+        <h4 class="text-capitalize fw-bold">beli tiket</h4>
+      </div>
+    </header>
+    
+    <main class="flex-grow-1 px-4 d-flex flex-column gap-4 my-3" style="padding-bottom: 6rem !important;">
+      <div class="shadow-sm p-4 rounded-3">
+          <h6 class="fw-bold mb-2">Nama Kegiatan</h6>
+          <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-location-dot" style="font-size: 12px;"></i>
+              <p class="m-0 lokasi text-capitalize" style="font-size: 12px;">malang, indonesia</p>
+          </div>
+      </div>
+      <div>
+        <h6 class="fw-bold mb-3">Rincian Harga</h6>
+        <div class="rounded-3 shadow-sm mb-3 p-4">
+          <table class="w-100">
+            <thead>
+              <tr>
+                <th style="width: 60%;" class="py-2">Pengunjung</th>
+                <th style="width: 40%;" class="text-end py-2">Harga</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="width: 60%;" class="py-2">Anonymous</td>
+                <td style="width: 40%;" class="text-end py-2">Rp 100.000</td>
+              </tr>
+              <tr>
+                <td style="width: 60%;" class="py-2">Anonymous 2</td>
+                <td style="width: 40%;" class="text-end py-2">Rp 100.000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="rounded-3 shadow-sm p-4 d-flex justify-content-between">
+          <p class="m-0">Total Pembayaran</p>
+          <p class="m-0 fw-bold">Rp 200.000</p>
+        </div>
+      </div>
+      <div>
+        <h6 class="fw-bold mb-3">Metode Pembayaran</h6>
+        <div class="d-flex flex-column gap-3">
+          <a class="card position-relative" style="flex-shrink: 0">
+            <div class="card-body d-flex gap-3 align-items-center">
+              <img src="https://cdn.brandfetch.io/idQqAF303b/w/400/h/400/theme/dark/icon.jpeg?c=1dxbfHSJFAPEGdCLU4o5B" style="width: 3rem; height: 3rem; object-fit: cover;" class="rounded" alt="Event 1">
+              <div>
+                <h6 class="card-title fw-bold m-0">Gopay</h6>
+              </div>
+            </div>
+          </a>
+          <a class="card position-relative" style="flex-shrink: 0">
+            <div class="card-body d-flex gap-3 align-items-center">
+              <img src="data:image/png;base64,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" style="width: 3rem; height: 3rem; object-fit: cover;" class="rounded" alt="Event 1">
+              <div>
+                <h6 class="card-title fw-bold m-0">Ovo</h6>
+              </div>
+            </div>
+          </a>
+          <a class="card position-relative" style="flex-shrink: 0">
+            <div class="card-body d-flex gap-3 align-items-center">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfkvzzc7g8zAPUuxvfsBfTWHYoF9n-e9HEIBbpiwNA1s9dPiIYVxQC47fArGjdUsf-lkQ&usqp=CAU" style="width: 3rem; height: 3rem; object-fit: cover;" class="rounded" alt="Event 1">
+              <div>
+                <h6 class="card-title fw-bold m-0">Dana</h6>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="fixed-bottom bg-white d-flex justify-content-between align-items-center border-top p-4">
+        <button onclick="window.location='index.html'" class="btn btn-primary w-100">Bayar</button>
+    </footer>
+</body>
+</html>
