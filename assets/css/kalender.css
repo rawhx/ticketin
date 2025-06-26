@@ -1,22 +1,9 @@
-.kalender-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
-
 .grid-kalender {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 0.5rem;
     text-align: center;
     color: #444;
-}
-
-.nama-hari {
-    font-weight: bold;
-    color: #888;
 }
 
 .hari {
@@ -42,12 +29,6 @@
     text-align: center;
     margin: auto;
     cursor: pointer;
-}
-
-.highlight {
-    padding: 10px 0;
-    cursor: pointer;
-    text-decoration: underline;
 }
 
 .txt-date-event {

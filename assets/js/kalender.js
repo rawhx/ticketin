@@ -14,7 +14,7 @@ function renderCalendar(date) {
     $("#kalender-hari").empty();
 
     DayNames.forEach(day => {
-        $("#kalender-hari").append(`<div class="nama-hari">${day}</div>`);
+        $("#kalender-hari").append(`<div class="fw-bold">${day}</div>`);
     });
 
     for (let i = 0; i < firstDay; i++) {
